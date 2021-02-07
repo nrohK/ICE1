@@ -17,13 +17,15 @@ public class CardTrick {
     
     public static void main(String[] args){
         Card[] magicHand = new Card[7];
-        CardTrick cardtrick = new CardTrick();
-        
+        CardTrick cardtrick = new CardTrick();   
+       
         //dealing random card and its suit, then putting the card in magicHand array
         cardtrick.dealing(magicHand);
 
         //insert code to ask the user for Card value and suit, create their card
-        cardtrick.userCard(magicHand);
+        //cardtrick.userCard(magicHand);
+        //replacing this to myLuckyCard;
+        cardtrick.myLuckyCard(magicHand);
         
         //revealing the cards in the magicHand array
         cardtrick.result(magicHand); 
@@ -33,8 +35,10 @@ public class CardTrick {
         for(int i = 0; i < magicHand.length; i++){
             Card c = new Card();
             magicHand[i] = c;
+            
             //c.setValue(insert call to random number generator here
             c.setValue(cardGenerator());
+            
             //c.setSuit(Card.SUITS[insert call to random number between 0-3 here])
             c.setSuit(Card.SUITS[cardSuitGenerator()]);
         }   //end of loop
@@ -59,29 +63,24 @@ public class CardTrick {
         }   //end of for loop
     }   //end of result
     
-    void userCard(Card[] magicHand){
-        //prompting the user
-        System.out.println("Pick a card: ");
-        Scanner sc = new Scanner (System.in);
-        System.out.println("Enter a number between 1 to 13: ");
-        int card = sc.nextInt();
-        System.out.println("Pick a number:\n\"1: Hearts\"\n\"2: Diamonds\"\n\"3: Spades\"\n\"4: Clubs\"");
-        sc.nextLine();
-        int cardSuit = sc.nextInt();
-        sc.close();     
-        //creating a card for user
-        Card chosenUserCard = new Card();
-        chosenUserCard.setValue(card);
-        chosenUserCard.setSuit(Card.SUITS[cardSuit - 1]);
-        //displaying the user's card
-        System.out.println("Your card:\n" + chosenUserCard.toString() + "\n\nLet's see if your card is in the magic hand . . .");
+    void myLuckyCard(Card[] magicHand){
+        //creating custom Card object called luckyCard
+        Card luckyCard = new Card();
+        
+        //the luckyCard
+        luckyCard.setValue(2);
+        luckyCard.setSuit(Card.SUITS[3]);
+        String theLuckyCard = luckyCard.toString();
+        
+        //introducing "The Lucky Card"
+        System.out.println("The Lucky Card: ");
+        System.out.println(theLuckyCard + "\n");
+   
         // and search magicHand here
         boolean itsThere = false;
         for(int i = 0; i < magicHand.length;){
-            //testing
-            magicHand[i].equals(chosenUserCard);
-            
-            if(magicHand[i].equals(chosenUserCard) == true ){ 
+            magicHand[i].equals(luckyCard);
+            if(magicHand[i].equals(luckyCard) == true ){ 
                 itsThere = true;
                 break;
             }
@@ -90,10 +89,10 @@ public class CardTrick {
             }
         }   //end of loop   
         if(itsThere){
-            System.out.println("Your card is there.\n" );
+            System.out.println("Lucky! Your card is there.\n" );
         } 
         else{
-                System.out.println("Sorry not your lucky day.\n");
+            System.out.println("Sorry not your lucky day.\n");
         }
     }   //end of userCard
     
