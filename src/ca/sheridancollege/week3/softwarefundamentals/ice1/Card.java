@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Khorn Eleptico
+ * 991598215
  */
 package ca.sheridancollege.week3.softwarefundamentals.ice1;
 
@@ -15,7 +14,7 @@ package ca.sheridancollege.week3.softwarefundamentals.ice1;
  * @author dancye
  */
 public class Card {
-
+   //field variables
    private String suit; //clubs, spades, diamonds, hearts
    private int value;//1-13
 
@@ -24,7 +23,7 @@ public class Card {
      * @return the suit
      */
     public String getSuit() {
-        return suit;
+        return this.suit;
     }
 
     /**
@@ -38,7 +37,7 @@ public class Card {
      * @return the value
      */
     public int getValue() {
-        return value;
+        return this.value;
     }
 
     /**
@@ -47,7 +46,15 @@ public class Card {
     public void setValue(int value) {
         this.value = value;
     }
-   
-   
+    
+   @Override
+   public boolean equals(Object obj){
+       Card c = (Card) obj;
+       return(this.suit == c.suit && this.getValue() == c.getValue());
+   }
+    
+    public String toString(){
+        return (this.value + " of " + this.suit);
+    }   //end of toString
     
 }
