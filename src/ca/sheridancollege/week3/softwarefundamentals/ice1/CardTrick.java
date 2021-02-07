@@ -68,8 +68,8 @@ public class CardTrick {
         Card luckyCard = new Card();
         
         //the luckyCard
-        luckyCard.setValue(2);
-        luckyCard.setSuit(Card.SUITS[3]);
+        luckyCard.setValue(5);
+        luckyCard.setSuit(Card.SUITS[0]);
         String theLuckyCard = luckyCard.toString();
         
         //introducing "The Lucky Card"
@@ -89,10 +89,10 @@ public class CardTrick {
             }
         }   //end of loop   
         if(itsThere){
-            System.out.println("Lucky! Your card is there.\n" );
+            System.out.println("Woah! \"The Lucky Card\" indeed.\nCongrats.\n" );
         } 
         else{
-            System.out.println("Sorry not your lucky day.\n");
+            System.out.println("Well, well, well, what \"a Lucky Card\" indeed.\nLoser.\n");
         }
     }   //end of userCard
     
